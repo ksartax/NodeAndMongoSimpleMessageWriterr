@@ -1,0 +1,27 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
+		<title> Strona z formularzem </title>
+	</head>
+	<body>
+		<h1> Wiadomości </h1>
+		<ul class="wiadomosci">
+			<% for (var i = 0; i<wiadomosci.length; i++) { %>
+				<li class="wiadomosci">
+					<span> Imie : <%= wiadomosci[i].imie %> </span> <br/>
+					<span> Nazwisko : <%= wiadomosci[i].nazwisko %> </span> <br/>
+					<span> Wiadomosc : <%= wiadomosci[i].wiadomosc %> </span> <br/>
+					<a href="/kasuj/<%= wiadomosci[i]._id %>"> <button> Kasuj </button> </a>
+				</li>
+				<hr/>
+			<% } %>
+		</ul>
+		<form action="/wiadomosci" method="POST">
+			<input type="text" placeholder="twoje imię:" name="imie" <br/>
+			<input type="text" placeholder="twoje nazwisko:" name="nazwisko" <br/>
+			<input type="text" placeholder="wiadomość:" name="wiadomosc" <br/>
+			<button type="submit"> Wyślij </button>
+		</form>
+	</body>
+</html>
